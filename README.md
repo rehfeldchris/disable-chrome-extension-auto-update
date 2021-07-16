@@ -1,22 +1,26 @@
 # What
 
 This is a shell script that makes it easy to disable or enable the automatic update process
-of all or specific individual Chrome/Chromium extensions. 
+of all or specific individual Chrome/Chromium compatible extensions. 
 
 # How
 
-Each installed extension has a `manifest.json` file which lists an `update_url` field that Chromium
-checks for extension updates. This script will modify that url, adding a `+` character to the front of the url, as a way
-to break the update process, preventing it from downloading an extension update. For example, `https://google.com...` will get changed to `+https://google.com...`
+Each of your installed extensions has a `manifest.json` file which lists an `update_url` field that Chromium
+periodically checks for extension updates. This script will modify that url, adding a `+` character to the front of the url, as a way
+to break the update process, preventing it from downloading an extension update. For example, an `update_url` like 
+`https://google.com...` will get changed to `+https://google.com...` And of course, the script will likewise remove the `+`
+if/when you wish to allow an update to occur.
 
 # Usage
 ```
-# Download the script
+# 1) Download the script
 curl -O https://raw.githubusercontent.com/rehfeldchris/disable-chrome-extension-auto-update/master/modupdates.sh
 chmod +x modupdates.sh
 
-# Now, edit the installDirSearchBase variable at the top of the script.
-# Finally, execute it:
+# 2) Now, use a text editor to edit the installDirSearchBase variable at the top of the script.
+vi ./modupdates.sh
+
+# 3) Finally, execute it:
 ./modupdates.sh
 ```
 
